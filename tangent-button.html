@@ -1,0 +1,99 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="tangent-button">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        outline: 0;
+        border: none;
+        background-color: #d8d8d8;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px;
+        text-align: center;
+        color: #333333;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: box-shadow .07s linear;
+        font-size: 14px;
+      }
+      :host([disabled]) {
+        border: 1px solid #a8a8a8;
+        color: #a8a8a8;
+        cursor: not-allowed;
+      }
+      :host iron-icon {
+        margin-right: 10px;
+      }
+      :host(.primary) {
+        box-shadow: inset 0px -2px 0px #0f7bbf;
+        background-color: #009cff;
+        color: #ffffff;
+      }
+      :host(.primary:active) {
+        box-shadow: inset 0px 2px 0px #0f7bbf;
+      }
+      :host(.danger) {
+        box-shadow: inset 0px -2px 0px #CC312D;
+        background-color: #f73f3f;
+        color: #ffffff;
+      }
+      :host(.danger:active) {
+        box-shadow: inset 0px 2px 0px #CC312D;
+      }
+      :host(.success) {
+        box-shadow: inset 0px -2px 0px #0e963a;
+        background-color: #10c54a;
+        color: #ffffff;
+      }
+      :host(.success:active) {
+        box-shadow: inset 0px 2px 0px #0e963a;
+      }
+    </style>
+    <span>
+      <iron-icon icon$="[[icon]]" hidden$="[[!hasIcon]]"></iron-icon>
+      <slot></slot>
+    </span>
+  </template>
+
+  <script>
+    /**
+     * `tangent-button`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TangentButton extends Polymer.Element {
+      static get is() { return 'tangent-button'; }
+      static get properties() {
+        return {
+          type: {
+            type: String,
+            value: ''
+          },
+          icon: {
+            type: String,
+            value: undefined
+          },
+          hasIcon: {
+            type: Boolean,
+            value: false,
+            observer: '_iconChange'
+          }
+        };
+      }
+      _iconChange() {
+        this.hasIcon = this.icon ? true: false;
+      }
+    }
+
+    window.customElements.define(TangentButton.is, TangentButton);
+  </script>
+</dom-module>

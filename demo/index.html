@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>tangent-button demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../tangent-button.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        tangent-button {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic tangent-button</h3>
+      <demo-snippet>
+        <template>
+          <tangent-button class="primary">
+            Primary
+          </tangent-button>
+          <tangent-button class="danger">
+            Danger
+          </tangent-button>
+          <tangent-button class="success">
+            Success
+          </tangent-button>
+          <tangent-button disabled>
+            Disabled
+          </tangent-button>
+        </template>
+      </demo-snippet>
+
+      <h3>tangent-button with icon</h3>
+      <demo-snippet>
+        <template>
+          <tangent-button class="primary" icon="date-range">
+            Primary
+          </tangent-button>
+          <tangent-button class="danger" icon="error">
+            classz
+          </tangent-button>
+          <tangent-button class="success" icon="fingerprint">
+            Success
+          </tangent-button>
+          <tangent-button disabled icon="room">
+            Disabled
+          </tangent-button>
+
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
